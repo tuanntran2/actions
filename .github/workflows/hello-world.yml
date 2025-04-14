@@ -1,0 +1,24 @@
+name: Hello World
+run-name: executed by $${{ github.actor }} on branch ${{ github.ref}} of repository ${{ github.repository }}
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    hello: # job name
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: echo hello world step
+              run: echo 'Hello, World!'
+              shell: bash
+
+    goodbye: # job name
+        runs-on: macos-latest
+        steps:
+            - name: echo goodbye world step
+              run: echo "Goodbye, World!"
+              shell: bash
+
