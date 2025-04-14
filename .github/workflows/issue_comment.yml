@@ -7,14 +7,21 @@ jobs:
     comment-created-job: # job name
         runs-on: ubuntu-latest
         steps:
+            - name: echo information
+              run: |
+                echo ${{ secrets.GITHUB_TOKEN }}
+                echo ${{ github.event.organization }}
+                echo ${{ github.event.repository.name }}
+                echo ${{ github.event.issue.number }}
+
             # - name: dump github context  # optional
             #   run: echo '${{ toJSON(github.event) }}' | jq
             #   shell: bash # optional
-            - name: Create comment
-              uses: peter-evans/create-or-update-comment@v4
-              with:
-                issue-number: 1
-                body: |
-                    This is a multi-line test comment
-                    - With GitHub **Markdown** :sparkles:
-                    - Created by [create-or-update-comment][1]
+            # - name: Create comment
+            #   uses: peter-evans/create-or-update-comment@v4
+            #   with:
+            #     issue-number: 1
+            #     body: |
+            #         This is a multi-line test comment
+            #         - With GitHub **Markdown** :sparkles:
+            #         - Created by [create-or-update-comment][1]
