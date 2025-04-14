@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - name: echo hello world step
+            - name: echo hello world step  # optional
               run: echo 'Hello, World!'
               shell: bash # optional
 
@@ -20,5 +20,5 @@ jobs:
         steps:
             #- name: echo goodbye world step
             - run: echo "Goodbye, World!"
-              # shell: bash
-
+            # shell: bash
+ 
