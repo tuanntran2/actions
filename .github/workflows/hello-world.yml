@@ -23,7 +23,7 @@ jobs:
               shell: bash # optional
             - name: check status
               id: check_status
-              run: echo '::set-output name=result::true'
+              run: echo '::set-output name=result::false'
 
     goodbye: # job name
         runs-on: macos-latest
