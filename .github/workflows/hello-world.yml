@@ -23,8 +23,8 @@ jobs:
               shell: bash # optional
             - name: check status
               id: check_status
-              run: echo '::set-output name=result::false'
-
+              # run: echo '::set-output name=result::false'
+              run: echo "result=true" >> $GITHUB_OUTPUT
     goodbye: # job name
         runs-on: macos-latest
         needs: hello   # wait for hello job
