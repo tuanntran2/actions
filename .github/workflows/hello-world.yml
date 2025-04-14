@@ -24,7 +24,7 @@ jobs:
             - name: check status
               id: check_status
               # run: echo '::set-output name=result::false'
-              run: echo "result=true" >> $GITHUB_OUTPUT
+              run: echo "result=false" >> $GITHUB_OUTPUT
     goodbye: # job name
         runs-on: macos-latest
         needs: hello   # wait for hello job
