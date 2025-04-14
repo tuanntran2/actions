@@ -13,12 +13,12 @@ jobs:
             - uses: actions/checkout@v4
             - name: echo hello world step
               run: echo 'Hello, World!'
-              # shell: bash
+              shell: bash # optional
 
     goodbye: # job name
         runs-on: macos-latest
         steps:
-            - name: echo goodbye world step
-              run: echo "Goodbye, World!"
+            #- name: echo goodbye world step
+            - run: echo "Goodbye, World!"
               # shell: bash
 
