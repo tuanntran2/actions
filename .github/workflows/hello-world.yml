@@ -22,6 +22,7 @@ jobs:
 
     goodbye: # job name
         runs-on: macos-latest
+        needs: hello
         steps:
             #- name: echo goodbye world step
             - run: echo "Goodbye, World!"
