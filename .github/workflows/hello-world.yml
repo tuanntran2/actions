@@ -24,14 +24,15 @@ jobs:
             - name: check status
               id: check_status
               # run: echo '::set-output name=result::false'
-              run: echo "result=false" >> $GITHUB_OUTPUT
+              run: echo "result=true" >> $GITHUB_OUTPUT
     goodbye: # job name
         runs-on: macos-latest
         needs: hello   # wait for hello job
-        if: needs.hello.outputs.result == 'true'
         steps:
             #- name: echo goodbye world step
-            - run: echo "Goodbye, World!"
+            - run: |
+                echo "Goodbye, World!"
+                if: needs.hello.outputs.result == 'true'
+                echo 'result = ${{ needs.hello.outputs.result }}'
             # shell: bash
-
  
