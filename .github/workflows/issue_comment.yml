@@ -1,0 +1,12 @@
+name: Create comment on new issue
+on:
+    issues:
+        types: [opened]
+
+jobs:
+    comment-created-job: # job name
+        runs-on: ubuntu-latest
+        steps:
+            - name: dump github context  # optional
+              run: echo ${{ toJSON(github.event) }} | jq
+              shell: bash # optional
