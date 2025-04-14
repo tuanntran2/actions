@@ -32,7 +32,9 @@ jobs:
             #- name: echo goodbye world step
             - run: |
                 echo "Goodbye, World!"
-                if: ${{ needs.hello.outputs.result }} == 'true'
                 echo 'result = ${{ needs.hello.outputs.result }}'
+                if [ ${{ needs.hello.outputs.result }} ]; then
+                    echo 'result is good'
+                fi
             # shell: bash
  
