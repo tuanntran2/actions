@@ -13,6 +13,7 @@ jobs:
                 echo ${{ github.event.organization }}
                 echo ${{ github.event.repository.name }}
                 echo ${{ github.event.issue.number }}
+                echo $GITHUB_BASE_REF
 
             # - name: dump github context  # optional
             #   run: echo '${{ toJSON(github.event) }}' | jq
