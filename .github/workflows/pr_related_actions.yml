@@ -3,8 +3,8 @@ name: Get PR Branch Name
 on:
   pull_request:
     types:
-      - opened
-      # - synchronize
+      # - opened
+      - synchronize
       # - reopened
   
   # workflow_dispatch:
