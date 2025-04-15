@@ -1,0 +1,29 @@
+# Name of the workflow
+name: GitHub Action Input/Output
+
+# Name of the workflow instance
+run-name: ${{ github.actor }} is testing out GitHub Actions on ${{ github.repository }}🚀
+
+# Specify how the workflow is triggered
+# In this scenario, the workflow is manually dispatched.
+# And users can specify an input text message
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'A text message'
+
+# Specify a list of jobs to run
+jobs:
+  job_1: # name of the first job
+    runs-on: ubuntu-latest
+    steps:
+      - name: job_1 step_1 # name of the first step
+        id: step_1
+        # output the result to 'step_1_output'
+        run: echo 'step_1_output=Hi ${{ inputs.message }}' >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: job_1 step_2 # name of the second step
+        run: echo '${{ steps.step_1.outputs.step_1_output }}'
+
