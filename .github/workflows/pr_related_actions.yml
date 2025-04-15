@@ -1,0 +1,28 @@
+name: Get PR Branch Name
+
+on:
+  pull_request:
+    types:
+      - opened
+      # - synchronize
+      # - reopened
+  
+  # workflow_dispatch:
+  #   inputs:
+  #     PR:
+  #       description: 'Pull request number'
+  #       required: true
+
+jobs:
+  pull_request_info:
+    name: 'Display pull request information'
+    defaults:
+      run:
+        shell: bash
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: |
+          echo ${{ secrets.GITHUB_TOKEN }}
+          echo ${{ github.event }}
