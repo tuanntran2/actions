@@ -1,17 +1,11 @@
-name: Get PR Branch Name
+name: Get PR Information
 
 on:
   pull_request:
     types:
-      # - opened
-      - synchronize
-      # - reopened
-  
-  # workflow_dispatch:
-  #   inputs:
-  #     PR:
-  #       description: 'Pull request number'
-  #       required: true
+      - opened  # PR is created   
+      - synchronize  # PR is updated
+      - reopened  # PR is reopened
 
 jobs:
   pull_request_info:
