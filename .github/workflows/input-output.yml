@@ -35,7 +35,7 @@ jobs:
 
       - name: job_1 step_3
         id: step_3
-        run: echo 'step_3_output='${{ steps.step_1.outputs.step_1_output }} from ${{ github.actor }}'
+        run: echo 'step_3_output='${{ steps.step_1.outputs.step_1_output }} from ${{ github.actor }}' >> $GITHUB_OUTPUT
         shell: bash
 
   job_2: # name of job 2
