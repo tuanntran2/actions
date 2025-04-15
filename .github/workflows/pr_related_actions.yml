@@ -15,7 +15,7 @@ on:
 
 jobs:
   pull_request_info:
-    name: 'Display pull request information'
+    name: 'Dump pull request information'
     defaults:
       run:
         shell: bash
@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
+      - name: Dump pull request event information
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
           echo ${{ secrets.GITHUB_TOKEN }}
-          echo ${{ toJson(github) }}
+          echo "$GITHUB_CONTEXT"
