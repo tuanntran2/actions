@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Verify Pull Request Number
-        uses: actionjs/github-script@v5
+        uses: actions/github-script@v5
         id: verify_pr_number
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
