@@ -3,7 +3,7 @@ name: Get PR Branch Name
 on:
   workflow_dispatch:
     inputs:
-      PR_number:
+      PR:
         description: 'Pull request number'
         required: true
 
@@ -17,22 +17,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Verify Pull Request Number
-        uses: actions/github-script@v5
-        id: verify_pr_number
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          result-encoding: string
-          script: |
-            const response = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: ${{ github.event.inputs.PR_number }}
-            });
+      - run: |
+          echo ${{ secrets.GITHUB_TOKEN }}
+          echo context.repo.owner
 
-            if (response.data.number !== ${{ github.event.inputs.PR_number }}) {
-              throw new Error('Pull request is not open or number is not valid!");
-            } else {
-              console.log("PR ref: " + response.data.head.ref);
-              return response.data.head.ref;
-            }
+      # - name: Verify Pull Request Number
+      #   uses: actions/github-script@v5
+      #   id: verify_pr_number
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     result-encoding: string
+      #     script: |
+      #       const response = await github.rest.pulls.get({
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         pull_number: ${{ github.event.inputs.PR }}
+      #       });
+
+      #       if (response.data.number !== ${{ github.event.inputs.PR }}) {
+      #         throw new Error('Pull request is not open or number is not valid!");
+      #       } else {
+      #         console.log("PR ref: " + response.data.head.ref);
+      #         return response.data.head.ref;
+      #       }
