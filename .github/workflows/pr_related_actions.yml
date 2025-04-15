@@ -25,4 +25,4 @@ jobs:
     steps:
       - run: |
           echo ${{ secrets.GITHUB_TOKEN }}
-          echo ${{ github.event }}
+          echo ${{ toJson(github) }}
