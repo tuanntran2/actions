@@ -47,3 +47,12 @@ jobs:
         run: echo 'This message is from job_1.  ${{ needs.job_1.outputs.job_1_output }}'
         shell: bash
   
+  job_3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test env
+        env:
+          env_1: 'Hi'
+          env_2: 'Hello'
+        run: echo '$env_1 Tuan' 
+ 
