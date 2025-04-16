@@ -15,6 +15,7 @@ on:
 
 env:
   env_var1: 'Workflow Environment Variable 1'
+  env_var2: 'Workflow Environment Variable 2'
 
 # Specify a list of jobs to run
 jobs:
@@ -22,5 +23,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo '$env_var1'
-
+      - run: echo '$env_var2'
   
