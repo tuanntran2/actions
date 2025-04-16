@@ -14,13 +14,13 @@ on:
         description: 'Specify environment'
 
 env:
-  NAME: 'Workflow Environment Variable'
+  env_var1: 'Workflow Environment Variable 1'
 
 # Specify a list of jobs to run
 jobs:
   job_1: # name of job 2
     runs-on: ubuntu-latest
     steps:
-      - run: echo '$NAME'
+      - run: echo '$env_var1'
 
   
