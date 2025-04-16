@@ -1,0 +1,26 @@
+# Name of the workflow
+name: GitHub Action Environment Secrets & Variables
+# Name of the workflow instance
+run-name: Test using GitHub Secrets & Variables
+
+# Specify how the workflow is triggered
+# In this scenario, the workflow is manually dispatched.
+# And users can specify an input text message
+on:
+  workflow_dispatch:
+    inputs:
+      my_env: # Dev or Staging or Prod
+        default: "Dev"
+        description: 'Specify environment'
+
+env:
+  NAME: 'Workflow Environment Variable'
+
+# Specify a list of jobs to run
+jobs:
+  job_1: # name of job 2
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo '$NAME'
+
+  
