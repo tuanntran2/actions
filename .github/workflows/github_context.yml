@@ -1,0 +1,27 @@
+name: Dump GitHub Context Information
+
+on:
+  workflow_dispatch:
+  # pull_request:
+  #   types:
+  #     - opened  # PR is created   
+  #     - synchronize  # PR is updated
+  #     - reopened  # PR is reopened
+
+env:
+  github_json: ${{ toJson(github) }}
+
+jobs:
+  job_1:
+    name: 'Dump GitHub Context information'
+
+    defaults:
+      run:
+        shell: bash
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "${{ github }}"
+      - run: echo "${{ env.github_json }}"
+      - run: echo "${{ toJson(github) }}"
